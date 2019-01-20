@@ -1,0 +1,15 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" >
+    <c:ConverterComponent
+            label="Degree"
+            defaultList = "['Kelvin', 'Celsius', 'Fahrenheit']"
+            fromList = "['Kelvin', 'Fahrenheit']"
+            toList = "['Celsius', 'Fahrenheit']"
+    />
+
+    <c:ConverterComponent
+            label="Distance"
+            defaultList = "['Meter', 'Mile', 'Versta']"
+            fromList = "['Mile', 'Versta']"
+            toList = "['Meter', 'Versta']"
+    />
+</aura:component>

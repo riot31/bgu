@@ -1,0 +1,31 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="ConverterController" access="global" >
+    
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="defaultList" type="List"/>
+    <aura:attribute name="fromList" type="List"/>
+    <aura:attribute name="toList" type="List" />
+
+    <aura:attribute name="value" type="Integer" default="0"/>
+    <aura:attribute name="result" type="String" />
+    <aura:attribute name="fromV" type="String"/>
+    <aura:attribute name="toV" type="String"/>
+    
+    
+    <div class="row">
+        <h2 class="header">{!v.label}</h2>
+        <lightning:input aura:id="field" name="value" type='Number' label="Enter some value" required="true" value="{!v.value}" />
+        <lightning:select aura:id="field" label="Select some value" name="from" required="true" value="{!v.fromV}" onchange='{!c.selectFrom}'>
+            <aura:iteration items="{!v.fromList}" var="option" indexVar="ind">
+                <option text="{!option}" value="{!option}" selected="{!ind == 0}"/>
+            </aura:iteration>
+        </lightning:select>
+         <lightning:select aura:id="field" label="Select some value" name="to" required="true" value="{!v.toV}"  onchange='{!c.selectTo}'>
+            <aura:iteration items="{!v.toList}" var="option" indexVar="ind">
+                <option text="{!option}" value="{!option}" selected="{!ind == 0}"/>
+            </aura:iteration>
+        </lightning:select>
+        <lightning:input name="result" label="Result:" value="{!v.result}" disabled='true' />
+        
+    	<lightning:button aura:id="submit" type="submit" label="Submit" onclick="{! c.submit }" />
+    </div>
+</aura:component>
